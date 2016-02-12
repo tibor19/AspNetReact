@@ -2,6 +2,9 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
+
+var nodeModulesPath = path.join(__dirname, 'node_modules');
+
 module.exports = {
     devtool: 'eval-source-map',
     devServer: {
@@ -27,7 +30,12 @@ module.exports = {
     ],
     module: {
         loaders: [
-          {
+            {
+                loader: 'ts-loader',
+                test: /\.tsx?$/,
+                include: path.join(__dirname, 'src')                
+            },
+            {
               loader: 'babel-loader',
               test: /\.jsx?$/,
               include: path.join(__dirname, 'src'),
@@ -37,5 +45,13 @@ module.exports = {
               }
           }
         ]
+    }
+    ,
+    resolve:{
+        extensions : ['', '.js', '.jsx', '.ts', '.tsx'],
+        alias: { 
+            'react': path.join(nodeModulesPath, 'react', 'react.js'), 
+            'react-dom': path.join(nodeModulesPath, 'react-dom', 'dist', 'react-dom.js')
+        } 
     }
 };
