@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3BC2AAD-AAD8-4F2A-A1D2-200F05818672}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{459ABF53-4E5B-49E7-A7F2-0B8ECB32A10C}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetReact", "src\AspNetReact\AspNetReact.xproj", "{96F46D68-251C-4E4B-BFDF-367BD15CFDB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96F46D68-251C-4E4B-BFDF-367BD15CFDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F46D68-251C-4E4B-BFDF-367BD15CFDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F46D68-251C-4E4B-BFDF-367BD15CFDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F46D68-251C-4E4B-BFDF-367BD15CFDB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96F46D68-251C-4E4B-BFDF-367BD15CFDB3} = {E3BC2AAD-AAD8-4F2A-A1D2-200F05818672}
+	EndGlobalSection
+EndGlobal
