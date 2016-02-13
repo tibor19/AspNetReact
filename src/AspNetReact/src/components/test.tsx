@@ -16,9 +16,9 @@ class Test extends React.Component<any, {messages : string[]}> {
     }
 
     render(){
-        var messageNodes = this.state.messages.map((message)=> {
+        var messageNodes = this.state.messages.map((message, index)=> {
             return (
-              <div>{message}</div>
+              <div key={index}>{message}</div>
             );
         });
 

@@ -6,12 +6,12 @@ var path = require('path');
 var nodeModulesPath = path.join(__dirname, 'node_modules');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: 'wwwroot'
     },
     entry: [
-        'babel-polyfill',
+        // 'babel-polyfill',
         './src/main.jsx'
     ],
     output: {
