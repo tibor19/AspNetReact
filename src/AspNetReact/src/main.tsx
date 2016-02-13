@@ -3,6 +3,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import Test from './components/Test.tsx';
+import App from './components/App.tsx';
+import Counter from './components/Counter.tsx';
 
-ReactDOM.render(<Test />, document.getElementById('container'));
+ReactDOM.render(
+    <div>
+        <App /> 
+        <Counter initialCount="10" />
+    </div>
+    , document.getElementById('container'));

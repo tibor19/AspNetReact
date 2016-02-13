@@ -4,7 +4,7 @@ interface State{
     messages : string[];
 }
 
-export default class Test extends React.Component<any, State> {
+export default class App extends React.Component<any, State> {
     
     constructor(){
         super();
