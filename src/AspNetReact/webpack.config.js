@@ -13,9 +13,6 @@ module.exports = {
         port: 3000
     },
     entry: [
-        // 'babel-polyfill',
-        // 'webpack-dev-server/client?http://localhost:3000',
-        // 'webpack/hot/only-dev-server',
         './src/main.tsx'
     ],
     output: {
@@ -24,14 +21,10 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(srcPath, 'index.html'),
             inject: 'body'
-        }),
-        // new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
-        // new webpack.optimize.OccurenceOrderPlugin(),
-        // new webpack.optimize.DedupePlugin()
+        })
     ],
     module: {
         preloaders : {
@@ -45,23 +38,10 @@ module.exports = {
                 test: /\.tsx?$/,
                 include: srcPath                
             }
-        //     {
-        //       loader: 'babel-loader',
-        //       test: /\.jsx?$/,
-        //       include: srcPath,
-        //       query: {
-        //           plugins: ['transform-runtime'],
-        //           presets: ['es2015', 'stage-0', 'react']
-        //       }
-        //   }
         ]
     }
     ,
     resolve:{
-        extensions : ['', '.js', '.ts', '.tsx'],
-        // alias: { 
-        //     'react': path.join(nodeModulesPath, 'react'), 
-        //     'react-dom': path.join(nodeModulesPath, 'react-dom')
-        // } 
+        extensions : ['', '.js', '.ts', '.tsx']
     }
 };

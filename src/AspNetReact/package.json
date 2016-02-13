@@ -5,7 +5,9 @@
   "main": "index.js",
   "readme": "Nothing to read here!",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "postinstall" : "typings install",
+    "start" : "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
