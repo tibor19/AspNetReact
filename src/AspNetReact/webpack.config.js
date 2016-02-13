@@ -4,6 +4,7 @@ var path = require('path');
 
 
 var nodeModulesPath = path.join(__dirname, 'node_modules');
+var srcPath = path.join(__dirname, 'src');
 
 module.exports = {
     devtool: 'source-map',
@@ -13,8 +14,8 @@ module.exports = {
     },
     entry: [
         // 'babel-polyfill',
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
+        // 'webpack-dev-server/client?http://localhost:3000',
+        // 'webpack/hot/only-dev-server',
         './src/main.tsx'
     ],
     output: {
@@ -25,24 +26,29 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '/wwwroot/index.html'),
+            template: path.join(srcPath, 'index.html'),
             inject: 'body'
         }),
-        new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin()
+        // new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+        // new webpack.optimize.OccurenceOrderPlugin(),
+        // new webpack.optimize.DedupePlugin()
     ],
     module: {
+        preloaders : {
+            loader: "tslint",
+            test: /\.tsx?$/,
+            include: srcPath                
+        },
         loaders: [
             {
-                loader: 'react-hot!ts',
+                loader: 'ts',
                 test: /\.tsx?$/,
-                include: path.join(__dirname, 'src')                
-            },
+                include: srcPath                
+            }
         //     {
         //       loader: 'babel-loader',
         //       test: /\.jsx?$/,
-        //       include: path.join(__dirname, 'src'),
+        //       include: srcPath,
         //       query: {
         //           plugins: ['transform-runtime'],
         //           presets: ['es2015', 'stage-0', 'react']
@@ -53,10 +59,9 @@ module.exports = {
     ,
     resolve:{
         extensions : ['', '.js', '.ts', '.tsx'],
-        alias: { 
-            'react': path.join(nodeModulesPath, 'react'), 
-            'react-dom': path.join(nodeModulesPath, 'react-dom')
-        } 
+        // alias: { 
+        //     'react': path.join(nodeModulesPath, 'react'), 
+        //     'react-dom': path.join(nodeModulesPath, 'react-dom')
+        // } 
     }
 };
-console.log(module.exports.resolve.alias['react-dom']);

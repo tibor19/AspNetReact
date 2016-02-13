@@ -1,15 +1,16 @@
-/// <reference path="..\..\typings\main\ambient\react\react.d.ts" />
-
 import * as React from 'react';
 
+interface State{
+    messages : string[];
+}
 
-class Test extends React.Component<any, {messages : string[]}> {
+export default class Test extends React.Component<any, State> {
     
     constructor(){
         super();
         this.state = {
             messages: [
-              'Hellas there how are you?',
+              'Hello there how are you?',
               'I am  fine, and you?'
             ]
         };
@@ -27,5 +28,3 @@ class Test extends React.Component<any, {messages : string[]}> {
         );
     }
 }
-
-export default Test;
