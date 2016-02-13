@@ -7,7 +7,6 @@
     "exclude": [
         "node_modules",
         "wwwroot",
-        "*.ts.d",
         "typings"
     ]
 }

@@ -9,7 +9,7 @@ class Test extends React.Component<any, {messages : string[]}> {
         super();
         this.state = {
             messages: [
-              'Hello there how are you?',
+              'Hellas there how are you?',
               'I am  fine, and you?'
             ]
         };

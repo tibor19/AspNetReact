@@ -8,11 +8,14 @@ var nodeModulesPath = path.join(__dirname, 'node_modules');
 module.exports = {
     devtool: 'source-map',
     devServer: {
-        contentBase: 'wwwroot'
+        contentBase: 'wwwroot',
+        port: 3000
     },
     entry: [
         // 'babel-polyfill',
-        './src/main.jsx'
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
+        './src/main.tsx'
     ],
     output: {
         path: 'wwwroot',
@@ -20,6 +23,7 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, '/wwwroot/index.html'),
             inject: 'body'
@@ -31,27 +35,28 @@ module.exports = {
     module: {
         loaders: [
             {
-                loader: 'ts-loader',
+                loader: 'react-hot!ts',
                 test: /\.tsx?$/,
                 include: path.join(__dirname, 'src')                
             },
-            {
-              loader: 'babel-loader',
-              test: /\.jsx?$/,
-              include: path.join(__dirname, 'src'),
-              query: {
-                  plugins: ['transform-runtime'],
-                  presets: ['es2015', 'stage-0', 'react']
-              }
-          }
+        //     {
+        //       loader: 'babel-loader',
+        //       test: /\.jsx?$/,
+        //       include: path.join(__dirname, 'src'),
+        //       query: {
+        //           plugins: ['transform-runtime'],
+        //           presets: ['es2015', 'stage-0', 'react']
+        //       }
+        //   }
         ]
     }
     ,
     resolve:{
-        extensions : ['', '.js', '.jsx', '.ts', '.tsx'],
+        extensions : ['', '.js', '.ts', '.tsx'],
         alias: { 
-            'react': path.join(nodeModulesPath, 'react', 'react.js'), 
-            'react-dom': path.join(nodeModulesPath, 'react-dom', 'dist', 'react-dom.js')
+            'react': path.join(nodeModulesPath, 'react'), 
+            'react-dom': path.join(nodeModulesPath, 'react-dom')
         } 
     }
 };
+console.log(module.exports.resolve.alias['react-dom']);
