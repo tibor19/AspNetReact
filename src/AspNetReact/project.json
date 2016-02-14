@@ -18,13 +18,13 @@
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "BSkyB.com.BSS.Authentication": "1.2.507.4-WIP"
       }
     }    
   },
   "exclude": [
     "wwwroot",
-    "node_modules"
+    "node_modules",
+    "typings"
   ],
   "publishExclude": [
     "**.user",
