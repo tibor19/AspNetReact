@@ -7,7 +7,7 @@ using Microsoft.AspNet.Mvc;
 namespace DependencyApp1.Controllers
 {
     [Route("api/[controller]")]
-    public class Dep2Controller : Controller
+    public class Dep1Controller : Controller
     {
         // GET: api/values
         [HttpGet]
